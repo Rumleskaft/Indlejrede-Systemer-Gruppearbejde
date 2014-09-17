@@ -15,10 +15,11 @@ int main() {
     // floop
     while (hasNextData()) {
         int x = getNextData();
-        filt(x);
+        int y = filt(x);
+        peakDetection(y);
     }
-    /*peakDetection()
-    yArray.push(y)*/
+
+    /*yArray.push(y)*/
     return 0;
 
 }
