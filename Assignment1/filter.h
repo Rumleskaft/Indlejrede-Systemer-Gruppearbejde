@@ -9,6 +9,6 @@
 #ifndef Assignment1_filter_h
 #define Assignment1_filter_h
 
-int filter(int x);
-
+int filt(int x);
+int loopCheck(int number, int limit);
 #endif

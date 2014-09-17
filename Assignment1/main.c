@@ -14,7 +14,7 @@
 int main() {
     // floop
     int x = getNextData();
-    int y =filter(x);
+    int y = filt(x);
     /*peakDetection()
     yArray.push(y)*/
     
