@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include "filter.h"
 
-const int l1 = 13, l2 = 32, l3 = 4, l4 = 30;
+const int l1 = 13, l2 = 33, l3 = 5, l4 = 30;
 int lowArray[l1], highArray[l2], derivArray[l3], windowArray[l4];
 int lowptr, highptr, derivptr, wndptr;
 
@@ -17,15 +17,16 @@ int filt(int a){
     
     lowptr = loopCheck(lowptr, l1);
     printf("%i%s", a, " ");
+    
 	int b = lowPassFilt(a);
     
-    printf("%i\n", b);
+    printf("%i%s", b, "  ");
     
     highptr = loopCheck(highptr, l2);
     
 	int c = highPassFilt(b);
     
-    // printf("%i\n", c);
+    printf("%i\n", c);
     
     derivptr = loopCheck(derivptr, l3);
     
@@ -42,22 +43,26 @@ int filt(int a){
 	return f;
 }
 
+// lowpass filter
 int lowPassFilt(int input){
 	lowArray[lowptr] = input;
     
-    return (2 * highArray[loopCheck(lowptr-1, l2)]) - (highArray[(loopCheck(lowptr - 2, l2))]) + ((1/32)*(lowArray[loopCheck(lowptr, l1)] - 2*lowArray[loopCheck(lowptr-6, l1)])+lowArray[loopCheck(lowptr-12, l1)]);
+    return (2 * highArray[loopCheck(lowptr-1, l2)])
+    - (highArray[(loopCheck(lowptr - 2, l2))])
+    + (lowArray[loopCheck(lowptr, l1)] - 2*lowArray[loopCheck(lowptr-6, l1)]+lowArray[loopCheck(lowptr-12, l1)])/32 ;
 }
 
+// highpass filter
 int highPassFilt(int input){
 	highArray[highptr] = input;
-	return derivArray[loopCheck(highptr - 1, sizeof(derivArray))] - highArray[highptr]/32 + highArray[loopCheck(highptr - 16, sizeof(highArray))] - highArray[loopCheck(highptr - 17, sizeof(highArray))] + (highArray[loopCheck(highptr + 1, sizeof(highArray))])/32;
+    
+	return derivArray[loopCheck(highptr - 1, l2)] - (highArray[highptr])/32 + highArray[loopCheck(highptr - 16, l2)] - highArray[loopCheck(highptr - 17, l2)] + (highArray[loopCheck(highptr - 32, l2)])/32;
 }
 
 int derivativeFilt(int input){
     
 	derivArray[derivptr] = input;
-	//return 1/8 * (2 * derivArray[derivptr] + derivArray[loopCheck(derivptr - 1, sizeof(derivArray))] - derivArray[loopCheck(derivptr - 3, sizeof(derivArray))] - 2 * derivArray[loopCheck(derivptr - 4, sizeof(derivArray))]);
-    return 0;
+	return 1/8 * (2 * derivArray[derivptr] + derivArray[loopCheck(derivptr - 1, sizeof(derivArray))] - derivArray[loopCheck(derivptr - 3, sizeof(derivArray))] - 2 * derivArray[loopCheck(derivptr - 4, l3)]);
 }
 
 int squaringFilt(int input){
@@ -79,7 +84,7 @@ int loopCheck(int number, int limit)	{
 	if(number >= limit)	{
 		return number % limit;
 	}else if(number<0){
-        return limit-(number+1);
+        return limit+number;
     }
 	return number;
 }
