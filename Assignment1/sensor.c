@@ -12,7 +12,7 @@
 
 FILE *file;
 int check = 0;
-static const char filename[] = "/Users/DanielBG/Documents/C workspace/Indlejrede-Systemer-Gruppearbejde/Assignment1/ECG.txt";
+static const char filename[] = "ECG.txt";
 
 int getNextData(){
     if(check==0){

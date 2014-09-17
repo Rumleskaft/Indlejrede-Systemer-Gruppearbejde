@@ -9,9 +9,24 @@
 #include <stdio.h>
 #include "sensor.h"
 #include "filter.h"
-int yArray[30];
+int outputArray[30], ptr = 0;
 
 int main() {
+<<<<<<< HEAD
+	// floop
+
+	int input = getNextData();
+	printf("Before: %d%s", input, " ");
+	int output = filt(input);
+	printf("After: %d\n", output);
+	outputArray[ptr] = output;
+
+	/*peakDetection()
+    	outputArraoutput.push(output)*/
+	loopCheck(ptr++, sizeof(outputArray));
+
+	return 0;
+=======
     // floop
     int i;
     for(i=0; i<100; i++){
@@ -23,4 +38,5 @@ int main() {
     yArray.push(y)*/
     
     return 0;
+>>>>>>> origin/master
 }
