@@ -21,7 +21,6 @@ int getNextData(){
     }
     int data;
     fscanf(file, "%i", &data);
-    printf("%d", data);
     return data;
 }
 
