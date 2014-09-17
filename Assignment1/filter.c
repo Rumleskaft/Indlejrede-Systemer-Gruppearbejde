@@ -16,12 +16,16 @@ int lowptr, highptr, derivptr, wndptr;
 int filt(int a){
     
     lowptr = loopCheck(lowptr, l1);
-    
+    printf("%i%s", a, " ");
 	int b = lowPassFilt(a);
+    
+    printf("%i\n", b);
     
     highptr = loopCheck(highptr, l2);
     
 	int c = highPassFilt(b);
+    
+    // printf("%i\n", c);
     
     derivptr = loopCheck(derivptr, l3);
     
@@ -39,9 +43,9 @@ int filt(int a){
 }
 
 int lowPassFilt(int input){
-    
 	lowArray[lowptr] = input;
-	return 2 * highArray[loopCheck(lowptr - 1, sizeof(highArray))] - highArray[loopCheck(lowptr - 2, sizeof(highArray))] + 1/32 *(lowArray[lowptr] - 2 * lowArray[loopCheck(lowptr - 6, sizeof(lowArray))] + lowArray[loopCheck(lowptr - 12, sizeof(lowArray))]);
+    
+    return (2 * highArray[loopCheck(lowptr-1, l2)]) - (highArray[(loopCheck(lowptr - 2, l2))]) + ((1/32)*(lowArray[loopCheck(lowptr, l1)] - 2*lowArray[loopCheck(lowptr-6, l1)])+lowArray[loopCheck(lowptr-12, l1)]);
 }
 
 int highPassFilt(int input){
@@ -74,9 +78,12 @@ int windowFilt(int input){
 int loopCheck(int number, int limit)	{
 	if(number >= limit)	{
 		return number % limit;
-	}
+	}else if(number<0){
+        return limit-(number+1);
+    }
 	return number;
 }
+
 
     // increments all pointers
 void pushptr(){
