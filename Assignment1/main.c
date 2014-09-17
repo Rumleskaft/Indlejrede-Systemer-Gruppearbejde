@@ -9,19 +9,20 @@
 #include <stdio.h>
 #include "sensor.h"
 #include "filter.h"
-int yArray[30];
+int outputArray[30], ptr = 0;
 
 int main() {
-    // floop
-    
-    int x = getNextData();
-    printf("%d", x);
-    int y = filt(x);
-    printf("%d", y);
-    yArray[0] = y;
-    
-    /*peakDetection()
-    yArray.push(y)*/
-    
-    return 0;
+	// floop
+
+	int input = getNextData();
+	printf("Before: %d%s", input, " ");
+	int output = filt(input);
+	printf("After: %d\n", output);
+	outputArray[ptr] = output;
+
+	/*peakDetection()
+    	outputArraoutput.push(output)*/
+	loopCheck(ptr++, sizeof(outputArray));
+
+	return 0;
 }
