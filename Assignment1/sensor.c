@@ -25,10 +25,3 @@ int getNextData(){
 }
 
 // TODO lav en open funktion
-
-når jeg committer gør jeg sådan her:
-
-Jeg finder først mappen som er vores repository
-
-
-når vi er inde i mappen bruger vi commandoen "git status" til at se om vi har den nyeste version og om der er nogen ændringer

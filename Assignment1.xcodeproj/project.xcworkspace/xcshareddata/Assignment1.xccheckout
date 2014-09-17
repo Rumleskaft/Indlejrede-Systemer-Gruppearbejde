@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>FD5E13DC-4C4D-447F-9E15-06BD7D0CD102</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Assignment1</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>A16A5595-CF67-4838-BAB0-8ED3CFA973C2</key>
+		<string>https://github.com/Rumleskaft/Indlejrede-Systemer-Gruppearbejde.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Assignment1.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>A16A5595-CF67-4838-BAB0-8ED3CFA973C2</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Rumleskaft/Indlejrede-Systemer-Gruppearbejde.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>A16A5595-CF67-4838-BAB0-8ED3CFA973C2</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>A16A5595-CF67-4838-BAB0-8ED3CFA973C2</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Indlejrede-Systemer-Gruppearbejde</string>
+		</dict>
+	</array>
+</dict>
+</plist>
