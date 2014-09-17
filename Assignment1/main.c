@@ -9,12 +9,17 @@
 #include <stdio.h>
 #include "sensor.h"
 #include "filter.h"
-// int[30] yArray;
+int yArray[30];
 
 int main() {
     // floop
+    
     int x = getNextData();
+    printf("%d", x);
     int y = filt(x);
+    printf("%d", y);
+    yArray[0] = y;
+    
     /*peakDetection()
     yArray.push(y)*/
     

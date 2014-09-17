@@ -46,15 +46,13 @@ int lowPassFilt(int input){
 
 int highPassFilt(int input){
 	highArray[highptr] = input;
-	return = derivArray[loopCheck(derivptr - 1, sizeof(derivArray))] - highArray[highptr]/32 + highArray[loopCheck(highptr - 16, sizeof(highArray))] - highArray[loopCheck(pointer - 17, sizeof(highArray))] + (highArray[loopCheck(pointer + 1, sizeof(highArray))])/32;
+	return derivArray[loopCheck(highptr - 1, sizeof(derivArray))] - highArray[highptr]/32 + highArray[loopCheck(highptr - 16, sizeof(highArray))] - highArray[loopCheck(highptr - 17, sizeof(highArray))] + (highArray[loopCheck(highptr + 1, sizeof(highArray))])/32;
 }
 
 int derivativeFilt(int input){
-	derivArray[pointer] = input;
-
-	output = 1/8 * (2 * derivArray[pointer] + derivArray[loopCheck(pointer - 1, sizeof(derivArray))] - derivArray[loopCheck(pointer - 3, sizeof(derivArray))] - 2 * derivArray[loopCheck(pointer - 4, sizeof(derivArray))]);
-
-	return output;
+    
+	derivArray[derivptr] = input;
+	return 1/8 * (2 * derivArray[derivptr] + derivArray[loopCheck(derivptr - 1, sizeof(derivArray))] - derivArray[loopCheck(derivptr - 3, sizeof(derivArray))] - 2 * derivArray[loopCheck(derivptr - 4, sizeof(derivArray))]);
 
 }
 
@@ -63,15 +61,13 @@ int squaringFilt(int input){
 }
 
 int windowFilt(int input){
-    int N = sizeof(windowArray);
-	windowArray[pointer] = input;
+    int N = sizeof(windowArray), output;
+	windowArray[wndptr] = input;
 
 	for(int i = 0; i<N; i++)	{
 		output += windowArray[i];
 	}
-	output = 1/N * output;
-
-	return output;
+	return 1/N * output;
 }
 
    // checks if the pointer is out of bounds
@@ -83,7 +79,7 @@ int loopCheck(int number, int limit)	{
 }
 
     // increments all pointers
-void pushptr{
+void pushptr(){
     lowptr++;
     highptr++;
     derivptr++;

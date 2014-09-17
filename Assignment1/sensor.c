@@ -12,7 +12,7 @@
 
 FILE *file;
 int check = 0;
-static const char filename[] = "/Users/DanielBG/Documents/C workspace/Assignment1/Assignment1/ECG.txt";
+static const char filename[] = "/Users/DanielBG/Documents/C workspace/Indlejrede-Systemer-Gruppearbejde/Assignment1/ECG.txt";
 
 int getNextData(){
     if(check==0){
@@ -21,7 +21,8 @@ int getNextData(){
     }
     int data;
     fscanf(file, "%i", &data);
-    return 0;
+    printf("%d", data);
+    return data;
 }
 
 // TODO lav en open funktion

@@ -11,4 +11,11 @@
 
 int filt(int x);
 int loopCheck(int number, int limit);
+int lowPassFilt(int input);
+int highPassFilt(int input);
+int derivativeFilt(int input);
+int squaringFilt(int input);
+int windowFilt(int input);
+void pushptr();
+
 #endif
