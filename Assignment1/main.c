@@ -12,16 +12,31 @@
 int outputArray[30], ptr = 0;
 
 int main() {
+<<<<<<< HEAD
+	// floop
+
+	int input = getNextData();
+	printf("Before: %d%s", input, " ");
+	int output = filt(input);
+	printf("After: %d\n", output);
+	outputArray[ptr] = output;
+
+	/*peakDetection()
+    	outputArraoutput.push(output)*/
+	loopCheck(ptr++, sizeof(outputArray));
+
+	return 0;
+=======
     // floop
     int i;
     for(i=0; i<100; i++){
         int x = getNextData();
         int y = filt(x);
-        outputArray[0] = y;
+        yArray[0] = y;
     }
     /*peakDetection()
     yArray.push(y)*/
     
     return 0;
-
+>>>>>>> origin/master
 }
