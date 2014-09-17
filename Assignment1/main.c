@@ -19,7 +19,6 @@ int main() {
     }
     /*peakDetection()
     yArray.push(y)*/
-    
     return 0;
 
 }

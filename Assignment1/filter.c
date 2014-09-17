@@ -77,11 +77,11 @@ int windowFilt(int input){
 }
 
    // checks if the pointer is out of bounds
-int loopCheck(int number, int limit)	{
-	if(number >= limit)	{
-		return number % limit;
+int loopCheck(int number, int length)	{
+	if(number >= length)	{
+		return number % length;
 	}else if(number<0){
-        return limit-((-number)%limit);
+        return length-((-number)%length);
     }
 	return number;
 }
