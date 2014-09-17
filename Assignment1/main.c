@@ -12,6 +12,7 @@
 int outputArray[30], ptr = 0;
 
 int main() {
+<<<<<<< HEAD
 	// floop
 
 	int input = getNextData();
@@ -25,4 +26,20 @@ int main() {
 	loopCheck(ptr++, sizeof(outputArray));
 
 	return 0;
+=======
+    // floop
+    int i;
+    for(i=0; i<100; i++){
+        int x = getNextData();
+        printf("%d", x);
+        printf("%s", " ");
+        int y = filt(x);
+        printf("%d\n", y);
+        yArray[0] = y;
+    }
+    /*peakDetection()
+    yArray.push(y)*/
+    
+    return 0;
+>>>>>>> origin/master
 }
