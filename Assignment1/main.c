@@ -9,15 +9,13 @@
 #include <stdio.h>
 #include "sensor.h"
 #include "filter.h"
-int outputArray[30], ptr = 0;
+int outputArray[100], ptr = 0;
 
 int main() {
     // floop
-    int i;
-    for(i=0; i<100; i++){
+    while (hasNextData()) {
         int x = getNextData();
-        int y = filt(x);
-        outputArray[0] = y;
+        filt(x);
     }
     /*peakDetection()
     yArray.push(y)*/

@@ -11,4 +11,5 @@
 
 
 int getNextData();
+int hasNextData();
 #endif

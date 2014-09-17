@@ -16,6 +16,6 @@ int highPassFilt(int input);
 int derivativeFilt(int input);
 int squaringFilt(int input);
 int windowFilt(int input);
-void pushptr();
+void pushcounter();
 
 #endif

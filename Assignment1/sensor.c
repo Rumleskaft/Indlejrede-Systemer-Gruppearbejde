@@ -24,4 +24,10 @@ int getNextData(){
     return data;
 }
 
-// TODO lav en open funktion
+
+int hasNextData(){
+    if(file!=NULL && feof(file)){
+        return 0;
+    }
+    return 1;
+}

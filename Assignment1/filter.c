@@ -9,60 +9,57 @@
 #include <stdio.h>
 #include "filter.h"
 
-const int l1 = 13, l2 = 33, l3 = 5, l4 = 30;
-int lowArray[l1], highArray[l2], derivArray[l3], windowArray[l4];
-int lowptr, highptr, derivptr, wndptr;
+static const int l1 = 13, l2 = 33, l3 = 5, l4 = 30;
+static int lowArray[l1], highArray[l2], derivArray[l3], windowArray[l4];
+static int lowcounter, highcounter, derivcounter, wndcounter;
 
 int filt(int a){
     
-    lowptr = loopCheck(lowptr, l1);
-    printf("%i%s", a, " ");
+    lowcounter = loopCheck(lowcounter, l1);
     
 	int b = lowPassFilt(a);
     
-    printf("%i%s", b, "  ");
+    printf("%i\n", b);
     
-    highptr = loopCheck(highptr, l2);
+    highcounter = loopCheck(highcounter, l2);
     
 	int c = highPassFilt(b);
     
-    printf("%i\n", c);
-    
-    derivptr = loopCheck(derivptr, l3);
+    derivcounter = loopCheck(derivcounter, l3);
     
 	int d = derivativeFilt(c);
     
 	int e = squaringFilt(d);
     
-    wndptr = loopCheck(wndptr, l4);
+    wndcounter = loopCheck(wndcounter, l4);
     
 	int f = windowFilt(e);
     
-    pushptr();
+    pushcounter();
     
 	return f;
 }
 
 // lowpass filter
 int lowPassFilt(int input){
-	lowArray[lowptr] = input;
+	lowArray[loopCheck(lowcounter, l1)] = input;
     
-    return (2 * highArray[loopCheck(lowptr-1, l2)])
-    - (highArray[(loopCheck(lowptr - 2, l2))])
-    + (lowArray[loopCheck(lowptr, l1)] - 2*lowArray[loopCheck(lowptr-6, l1)]+lowArray[loopCheck(lowptr-12, l1)])/32 ;
+    return (2 * highArray[loopCheck(lowcounter-1, l2)])
+    - (highArray[(loopCheck(lowcounter - 2, l2))])
+    + (lowArray[loopCheck(lowcounter, l1)] - 2*lowArray[loopCheck(lowcounter-6, l1)]+lowArray[loopCheck(lowcounter-12, l1)])/32 ;
 }
 
 // highpass filter
 int highPassFilt(int input){
-	highArray[highptr] = input;
+	highArray[loopCheck(highcounter, l2)] = input;
     
-	return derivArray[loopCheck(highptr - 1, l2)] - (highArray[highptr])/32 + highArray[loopCheck(highptr - 16, l2)] - highArray[loopCheck(highptr - 17, l2)] + (highArray[loopCheck(highptr - 32, l2)])/32;
+	return derivArray[loopCheck(highcounter - 1, l3)] - (highArray[loopCheck(highcounter, l2)])/32 + highArray[loopCheck(highcounter - 16, l2)] - highArray[loopCheck(highcounter - 17, l2)] + (highArray[loopCheck(highcounter - 32, l2)])/32;
 }
 
 int derivativeFilt(int input){
     
-	derivArray[derivptr] = input;
-	return 1/8 * (2 * derivArray[derivptr] + derivArray[loopCheck(derivptr - 1, sizeof(derivArray))] - derivArray[loopCheck(derivptr - 3, sizeof(derivArray))] - 2 * derivArray[loopCheck(derivptr - 4, l3)]);
+	derivArray[loopCheck(derivcounter,l3)] = input;
+	return (2 * derivArray[loopCheck(derivcounter, l3)]/8 + derivArray[loopCheck(derivcounter - 1, l3)] - derivArray[loopCheck(derivcounter - 3, l3)] - 2 * derivArray[loopCheck(derivcounter - 4, l3)]);
 }
 
 int squaringFilt(int input){
@@ -70,13 +67,13 @@ int squaringFilt(int input){
 }
 
 int windowFilt(int input){
-    int N = sizeof(windowArray), output;
-	windowArray[wndptr] = input;
+    int output;
+	windowArray[wndcounter] = input;
 
-	for(int i = 0; i<N; i++)	{
+	for(int i = 0; i<l4; i++)	{
 		output += windowArray[i];
 	}
-	return 1/N * output;
+	return output/l4;
 }
 
    // checks if the pointer is out of bounds
@@ -84,16 +81,16 @@ int loopCheck(int number, int limit)	{
 	if(number >= limit)	{
 		return number % limit;
 	}else if(number<0){
-        return limit+number;
+        return limit-((-number)%limit);
     }
 	return number;
 }
 
 
     // increments all pointers
-void pushptr(){
-    lowptr++;
-    highptr++;
-    derivptr++;
-    wndptr++;
+void pushcounter(){
+    lowcounter++;
+    highcounter++;
+    derivcounter++;
+    wndcounter++;
 }
