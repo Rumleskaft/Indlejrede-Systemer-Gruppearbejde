@@ -15,17 +15,9 @@ int main() {
     // floop
     while (hasNextData()) {
         int x = getNextData();
-        filt(x);
+        int y = filt(x);
+        peakDetection(y);
     }
-    /*peakDetection()
-    yArray.push(y)*/
-    int z = loopCheck(-1, 32);
-    printf("%i\n", z);
-    z = loopCheck(-12, 12);
-        printf("%i\n", z);
-    z = loopCheck(-6, 12);
-        printf("%i\n", z);
-    
     return 0;
     
 
