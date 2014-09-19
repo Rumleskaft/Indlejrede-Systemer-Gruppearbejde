@@ -15,16 +15,17 @@ static int lowcounter, highcounter, derivcounter, wndcounter;
 
 int filt(int a){
     
+
     lowcounter = loopCheck(lowcounter, l1);
-    
+        printf("%i%s", lowcounter, "   " );
 	int b = lowPassFilt(a);
     
-    printf("%i\n", b);
+        printf("%i\n", b);
     
     highcounter = loopCheck(highcounter, l2);
-    
+       // printf("%i%s", highcounter, "   " );
 	int c = highPassFilt(b);
-    
+       // printf("%i\n", c);
     derivcounter = loopCheck(derivcounter, l3);
     
 	int d = derivativeFilt(c);
@@ -44,8 +45,8 @@ int filt(int a){
 int lowPassFilt(int input){
 	lowArray[loopCheck(lowcounter, l1)] = input;
     
-    return (2 * highArray[loopCheck(lowcounter-1, l2)])
-    - (highArray[(loopCheck(lowcounter - 2, l2))])
+    return (2 * highArray[loopCheck(lowcounter-1, l1)])
+    - (highArray[(loopCheck(lowcounter - 2, l1))])
     + (lowArray[loopCheck(lowcounter, l1)] - 2*lowArray[loopCheck(lowcounter-6, l1)]+lowArray[loopCheck(lowcounter-12, l1)])/32 ;
 }
 
@@ -53,7 +54,7 @@ int lowPassFilt(int input){
 int highPassFilt(int input){
 	highArray[loopCheck(highcounter, l2)] = input;
     
-	return derivArray[loopCheck(highcounter - 1, l3)] - (highArray[loopCheck(highcounter, l2)])/32 + highArray[loopCheck(highcounter - 16, l2)] - highArray[loopCheck(highcounter - 17, l2)] + (highArray[loopCheck(highcounter - 32, l2)])/32;
+	return derivArray[loopCheck(highcounter - 1, l2)] - (highArray[loopCheck(highcounter, l2)])/32 + highArray[loopCheck(highcounter - 16, l2)] - highArray[loopCheck(highcounter - 17, l2)] + (highArray[loopCheck(highcounter - 32, l2)])/32;
 }
 
 int derivativeFilt(int input){
@@ -79,9 +80,9 @@ int windowFilt(int input){
    // checks if the pointer is out of bounds
 int loopCheck(int number, int length)	{
 	if(number >= length)	{
-		return number % length;
-	}else if(number<0){
-        return length-((-number)%length);
+		return (number % length);
+    }else if(number<0){
+        return length-1-((-number)%(length-1));
     }
 	return number;
 }
