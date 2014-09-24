@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include "sensor.h"
 #include "filter.h"
+#include <time.h>
 int counter = 0;
 int main() {
     // floop
@@ -19,7 +20,8 @@ int main() {
         counter++;
        // peakDetection(y);
     }
-    
+    time_t result = time(NULL);
+    displayData(1200, 1, localtime(&result));
     return 0;
     
 
