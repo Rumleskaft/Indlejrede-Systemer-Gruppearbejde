@@ -16,7 +16,7 @@ int main() {
     while (hasNextData()) {
         int x = getNextData();
         int y = filt(x);
-        peakDetection(y);
+       // peakDetection(y);
     }
     return 0;
     

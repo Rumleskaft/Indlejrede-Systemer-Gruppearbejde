@@ -19,7 +19,6 @@ int filt(int a){
     lowcounter = loopCheck(lowcounter, l1);
         printf("%i%s", lowcounter, "   " );
 	int b = lowPassFilt(a);
-    
         printf("%i\n", b);
     
     highcounter = loopCheck(highcounter, l2);
@@ -39,12 +38,12 @@ int filt(int a){
     pushcounter();
     
 	return f;
+    skal lige tjekke om der er en version hvor det virker, på github
 }
 
 // lowpass filter
 int lowPassFilt(int input){
 	lowArray[loopCheck(lowcounter, l1)] = input;
-    
     return (2 * highArray[loopCheck(lowcounter-1, l1)])
     - (highArray[(loopCheck(lowcounter - 2, l1))])
     + (lowArray[loopCheck(lowcounter, l1)] - 2*lowArray[loopCheck(lowcounter-6, l1)]+lowArray[loopCheck(lowcounter-12, l1)])/32 ;
