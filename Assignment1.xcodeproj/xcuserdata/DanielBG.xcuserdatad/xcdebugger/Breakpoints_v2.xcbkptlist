@@ -69,22 +69,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Assignment1/filter.c"
-            timestampString = "433254666.484499"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "filt()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Assignment1/sensor.c"
             timestampString = "432642882.545795"
             startingColumnNumber = "9223372036854775807"
@@ -123,7 +107,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "45"
             endingLineNumber = "45"
-            landmarkName = "lowPassFilt()"
+            landmarkName = "filt()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -139,7 +123,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "87"
             endingLineNumber = "87"
-            landmarkName = "pushcounter()"
+            landmarkName = "loopCheck()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -155,7 +139,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "65"
             endingLineNumber = "65"
-            landmarkName = "squaringFilt()"
+            landmarkName = "derivativeFilt()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
