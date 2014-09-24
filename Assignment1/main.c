@@ -9,15 +9,17 @@
 #include <stdio.h>
 #include "sensor.h"
 #include "filter.h"
-int outputArray[100], ptr = 0;
-
+int counter = 0;
 int main() {
     // floop
     while (hasNextData()) {
+        printf("%i%s", counter, "   " );
         int x = getNextData();
         int y = filt(x);
+        counter++;
        // peakDetection(y);
     }
+    
     return 0;
     
 
