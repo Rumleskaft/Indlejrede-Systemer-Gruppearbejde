@@ -25,11 +25,12 @@ void findLocalMaxima()	{
 
 void findRPeaks()	{
 	static int SPKF = 0, NPKF = 0, THRESHOLD1 = 0, THRESHOLD2 = 0;
-	static int RPeak[8];
+	static int RPeak[8], RPeakPtr = 0;
+	static int RRPeak[5], RRPeakPtr = 0;
 
 	RR_AVERAGE1 = 0;
 	for(int i=0; i<8; i++){
-		RR_AVERAGE1 += peaks[peakPtr -i];
+		RR_AVERAGE1 += peaks[i];
 	}
 	RR_AVERAGE1 = RR_AVERAGE1 / 8;
 
@@ -38,7 +39,35 @@ void findRPeaks()	{
 		THRESHOLD1 = NPKF + 0.25*(SPKF - NPKF);
 		THRESHOLD2 = 0.5*THRESHOLD1;
 	}else{
+		RPeak[RPeakPtr] = peaks[peakPtr];
 
+		RR_AVERAGE2 = 0;
+		for(int i=0; i<8; i++)	{
+			RR_AVERAGE2 += RPeak[i];
+		}
+		RR_AVERAGE2 = RR_AVERAGE2 / 8;
+
+		RR_LOW = RR_AVERAGE2 / 100 * 92;
+		RR_HIGH = RR_AVERAGE2 / 100 * 116;
+		RR_MISS = RR_AVERAGE2 / 100 * 166;
+
+		if(RR_LOW < RPeak[RPeakPtr] && RPeak[RPeakPtr] < RR_HIGH)	{
+			RRPeak[RRPeakPtr] = RPeak[RPeakPtr]; // Regular RPeaks
+
+			SPKF = 0.125 * peaks[peakPtr] + 0.875 * SPKF;
+			THRESHOLD1 = NPKF + 0.25 * (SPKF - NPKF);
+			THRESHOLD2 = 0.5 * THRESHOLD1;
+		}else if(RPeak[RPeakPtr] < RR_MISS){
+			//Nothing happens
+		}else{
+			searchBack();
+		}
+
+		RPeakPtr++;
 	}
 
+}
+
+void searchBack()	{
+	peaks[]
 }
