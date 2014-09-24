@@ -107,7 +107,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "45"
             endingLineNumber = "45"
-            landmarkName = "filt()"
+            landmarkName = "lowPassFilt()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -123,7 +123,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "87"
             endingLineNumber = "87"
-            landmarkName = "loopCheck()"
+            landmarkName = "pushcounter()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -139,7 +139,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "65"
             endingLineNumber = "65"
-            landmarkName = "derivativeFilt()"
+            landmarkName = "squaringFilt()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

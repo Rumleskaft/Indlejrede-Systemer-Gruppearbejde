@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include "filter.h"
 
-static const int l1 = 13, l2 = 33, l3 = 5, l4 = 31;
+static const int l1 = 13, l2 = 33, l3 = 5, l4 = 30;
 static int lowArray[l1], highArray[l2], derivArray[l3], windowArray[l4];
 static int lowcounter = 0, highcounter = 0, derivcounter = 0, wndcounter = 0;
 
@@ -66,7 +66,7 @@ int squaringFilt(int input){
 
 int windowFilt(int input){
     int output = 0;
-	windowArray[wndcounter] = input;
+	windowArray[loopCheck(wndcounter,l4)] = input;
 	for(int i = 0; i<l4; i++)	{
 		output += windowArray[i];
 	}
