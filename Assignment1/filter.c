@@ -10,7 +10,7 @@
 #include "filter.h"
 
 static const int l1 = 13, l2 = 33, l3 = 5, l4 = 30;
-static int lowArray[l1], highArray[l2], derivArray[l3], windowArray[l4];
+static int lowArray[13], highArray[33], derivArray[5], windowArray[30];
 static int lowcounter = 0, highcounter = 0, derivcounter = 0, wndcounter = 0;
 
 int filt(int a){
