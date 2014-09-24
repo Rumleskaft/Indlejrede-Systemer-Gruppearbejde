@@ -38,28 +38,27 @@ int filt(int a){
     pushcounter();
     
 	return f;
-    skal lige tjekke om der er en version hvor det virker, på github
 }
 
 // lowpass filter
 int lowPassFilt(int input){
 	lowArray[loopCheck(lowcounter, l1)] = input;
-    return (2 * highArray[loopCheck(lowcounter-1, l1)])
-    - (highArray[(loopCheck(lowcounter - 2, l1))])
-    + (lowArray[loopCheck(lowcounter, l1)] - 2*lowArray[loopCheck(lowcounter-6, l1)]+lowArray[loopCheck(lowcounter-12, l1)])/32 ;
+    return (2 * highArray[loopCheck(lowcounter-1, l2)])
+    +    - (highArray[(loopCheck(lowcounter - 2, l2))])
+    +    + (lowArray[loopCheck(lowcounter, l1)] - 2*lowArray[loopCheck(lowcounter-6, l1)]+lowArray[loopCheck(lowcounter-12, l1)])/32 ;
 }
 
 // highpass filter
 int highPassFilt(int input){
 	highArray[loopCheck(highcounter, l2)] = input;
     
-	return derivArray[loopCheck(highcounter - 1, l2)] - (highArray[loopCheck(highcounter, l2)])/32 + highArray[loopCheck(highcounter - 16, l2)] - highArray[loopCheck(highcounter - 17, l2)] + (highArray[loopCheck(highcounter - 32, l2)])/32;
+	return derivArray[loopCheck(highcounter - 1, l2)] - (highArray[highcounter])/32 + highArray[loopCheck(highcounter - 16, l2)] - highArray[loopCheck(highcounter - 17, l2)] + (highArray[loopCheck(highcounter - 32, l2)])/32;
 }
 
 int derivativeFilt(int input){
     
 	derivArray[loopCheck(derivcounter,l3)] = input;
-	return (2 * derivArray[loopCheck(derivcounter, l3)]/8 + derivArray[loopCheck(derivcounter - 1, l3)] - derivArray[loopCheck(derivcounter - 3, l3)] - 2 * derivArray[loopCheck(derivcounter - 4, l3)]);
+	return 1/8 * (2 * derivArray[derivcounter] + derivArray[loopCheck(derivcounter - 1, sizeof(derivArray))] - derivArray[loopCheck(derivcounter - 3, sizeof(derivArray))] - 2 * derivArray[loopCheck(derivcounter - 4, l3)]);
 }
 
 int squaringFilt(int input){
