@@ -27,11 +27,11 @@ void findRPeaks()	{
 	static int SPKF = 0, NPKF = 0, THRESHOLD1 = 0, THRESHOLD2 = 0;
 	static int RPeak[8];
 
-	RR_AVERAGE1 = 0
+	RR_AVERAGE1 = 0;
 	for(int i=0; i<8; i++){
 		RR_AVERAGE1 += peaks[peakPtr -i];
 	}
-	RR_AVERAGE1 = 1/8*RR_AVERAGE1;
+	RR_AVERAGE1 = RR_AVERAGE1 / 8;
 
 	if(peaks[peakPtr] < THRESHOLD1)	{ //if Peak is lower
 		NPKF = 0.125*peaks[peakPtr] + 0.875*NPKF;
