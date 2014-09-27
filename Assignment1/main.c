@@ -7,8 +7,12 @@
 //
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "sensor.h"
 #include "filter.h"
+#include <time.h>
+
+
 int counter = 0;
 int main() {
     // floop
@@ -17,7 +21,8 @@ int main() {
         int x = getNextData();
         int y = filt(x);
         counter++;
-       // peakDetection(y);
+        time_t timeobj = time(NULL);
+       // peakDetection(y, timeobj);
     }
     
     return 0;
