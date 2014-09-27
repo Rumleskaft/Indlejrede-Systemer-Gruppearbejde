@@ -11,12 +11,8 @@
 #include "sensor.h"
 #include "filter.h"
 #include <time.h>
-<<<<<<< HEAD
-
-
-=======
 #include "display.h"
->>>>>>> origin/master
+
 int counter = 0;
 int main() {
     // floop
