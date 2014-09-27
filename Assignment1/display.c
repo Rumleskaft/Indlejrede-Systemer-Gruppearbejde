@@ -24,23 +24,4 @@ int displayData(rPeak, missed, time){
     
     return 0;
 }
-
-/*
- 
- introduktion
- 
- problemanalyse
- 
- design
- 
- implementation
- 
- resultatet (outputs, DIFF!!!!, optimere, kunne goeres bedre, koeretid, stroemforbrug)
- 
- konklusion (opsumering)
- 
- alt dette kan udledes af writing-reports.pfd
- 
- gprof til at profilere program - analysere alt og alle funktioner
- 
- */
+s

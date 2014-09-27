@@ -10,6 +10,7 @@
 #include "sensor.h"
 #include "filter.h"
 #include <time.h>
+#include "display.h"
 int counter = 0;
 int main() {
     // floop
@@ -20,9 +21,8 @@ int main() {
         counter++;
        // peakDetection(y);
     }
+    //tidsobjekt nedenunder her, den giver jeg til displaydata. men den giver vi til peakdetection istedet. jeg skal lige være sikker på at vi får current time
     time_t result = time(NULL);
-    displayData(1200, 1, localtime(&result));
+    displayData(1200, 1, result);
     return 0;
-    
-
 }
