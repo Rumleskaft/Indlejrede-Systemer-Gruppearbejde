@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1501537019D81D74001CE57E /* peakDetection.c in Sources */ = {isa = PBXBuildFile; fileRef = 1501536F19D81D74001CE57E /* peakDetection.c */; };
 		152AD2C119D2FE7900BDBC64 /* display.c in Sources */ = {isa = PBXBuildFile; fileRef = 152AD2C019D2FE7900BDBC64 /* display.c */; };
 		1556244719C0712600FF7523 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 1556244619C0712600FF7523 /* main.c */; };
 		1556244919C0712600FF7523 /* Assignment1.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1556244819C0712600FF7523 /* Assignment1.1 */; };
@@ -28,6 +29,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1501536F19D81D74001CE57E /* peakDetection.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = peakDetection.c; sourceTree = "<group>"; };
+		1501537119D81D91001CE57E /* peakDetection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = peakDetection.h; sourceTree = "<group>"; };
 		152AD2BF19D2FE7200BDBC64 /* display.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = display.h; sourceTree = "<group>"; };
 		152AD2C019D2FE7900BDBC64 /* display.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = display.c; sourceTree = "<group>"; };
 		1556244319C0712600FF7523 /* Assignment1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Assignment1; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +72,8 @@
 		1556244519C0712600FF7523 /* Assignment1 */ = {
 			isa = PBXGroup;
 			children = (
+				1501536F19D81D74001CE57E /* peakDetection.c */,
+				1501537119D81D91001CE57E /* peakDetection.h */,
 				1556244619C0712600FF7523 /* main.c */,
 				15666D5619C08EE200B06C65 /* filter.c */,
 				15DE8A4E19C0910000EB069D /* filter.h */,
@@ -132,6 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1501537019D81D74001CE57E /* peakDetection.c in Sources */,
 				152AD2C119D2FE7900BDBC64 /* display.c in Sources */,
 				1556244719C0712600FF7523 /* main.c in Sources */,
 				15666D5719C08EE200B06C65 /* filter.c in Sources */,

@@ -1,8 +1,10 @@
+#include <time.h>
+#include "filter.h"
 // TODO: gør bufferstørelsen til en variabel
 static int buffer[5], peaks[30], ptr = 0, peakPtr = 0;
 static int RR_AVERAGE1, RR_AVERAGE2, RR_LOW, RR_HIGH, RR_MISS;
 
-int peakDetection(int input)	{
+int peakDetection(int input, time_t time)	{
 
 	//TODO: gør buffer til et lokalt array i findLocalMaxima() og giv den input istedet.
 	// lav et check så den først kører efter 5 inputs.
@@ -12,7 +14,7 @@ int peakDetection(int input)	{
 	return 0;
 }
 
-void findLocalMaxima()	{
+int findLocalMaxima()	{
 	//brug bufferstørrelsen istedet for 5 og 30
 	if(buffer[loopCheck(ptr -1,5)] < buffer[ptr] && buffer[ptr] > buffer[loopCheck(ptr +1,5)])	{
 		//Add the value in peak-array
@@ -21,9 +23,10 @@ void findLocalMaxima()	{
 		peakPtr++;
 		ptr++;
 	}
+    return 0;
 }
 
-void findRPeaks()	{
+int findRPeaks()	{
 	static int SPKF = 0, NPKF = 0, THRESHOLD1 = 0, THRESHOLD2 = 0;
 	static int RPeak[8], RPeakPtr = 0;
 	static int RRPeak[5], RRPeakPtr = 0;
@@ -64,16 +67,17 @@ void findRPeaks()	{
 		loopCheck(RRPeakPtr++, 5);
 		loopCheck(RPeakPtr++, 8);
 	}
-
+    return 0;
 }
 
-RRUpdate()	{
+int RRUpdate()	{
 	RR_LOW = RR_AVERAGE2 / 100 * 92;
 	RR_HIGH = RR_AVERAGE2 / 100 * 116;
 	RR_MISS = RR_AVERAGE2 / 100 * 166;
+    return 0;
 }
 
-int RRAverageUpdate( array[])	{
+int RRAverageUpdate(int array[])	{
 	int average = 0;
 	for(int i=0; i<8; i++){
 		average += array[i];

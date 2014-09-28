@@ -12,6 +12,7 @@
 #include "filter.h"
 #include <time.h>
 #include "display.h"
+#include "peakDetection.h"
 
 int counter = 0;
 int main() {
@@ -22,7 +23,7 @@ int main() {
         int y = filt(x);
         counter++;
         time_t timeobj = time(NULL);
-       // peakDetection(y, timeobj);
+        peakDetection(y, timeobj);
     }
     //tidsobjekt nedenunder her, den giver jeg til displaydata. men den giver vi til peakdetection istedet. jeg skal lige være sikker på at vi får current time
     time_t result = time(NULL);
