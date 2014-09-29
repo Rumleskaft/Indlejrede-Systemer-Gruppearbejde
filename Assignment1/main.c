@@ -15,15 +15,11 @@
 #include <unistd.h>
 
 int main() {
-    // floop
+    // Run program while we're still receiving data
     while (hasNextData()) {
         int x = getNextData();
         int y = filt(x);
-        //printf("%u\n", (unsigned)time(NULL));
-       // sleep(1);
-
-       peakDetection(y);
+        peakDetection(y);
     }
-    //tidsobjekt nedenunder her, den giver jeg til displaydata. men den giver vi til peakdetection istedet. jeg skal lige være sikker på at vi får current time
     return 0;
 }

@@ -9,6 +9,6 @@
 #ifndef Assignment1_display_h
 #define Assignment1_display_h
 
-int displayData(int rPeak,int pulse, int time);
+int displayData(int rPeak, int pulse, int time);
 
 #endif

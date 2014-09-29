@@ -15,8 +15,10 @@ static int lowcounter = 0, highcounter = 0, derivcounter = 0, wndcounter = 0;
 
 int filt(int a){
 
+    lowcounter = loopCheck(lowcounter, 13);
     printf("%i%s", lowcounter, "   " );
     printf("%i%s", a, "  ");
+    
 	int b = lowPassFilt(a);
         printf("%i%s", b, "   " );
     
