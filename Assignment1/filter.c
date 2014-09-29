@@ -15,8 +15,8 @@ static int lowcounter = 0, highcounter = 0, derivcounter = 0, wndcounter = 0;
 
 int filt(int a){
 
-    lowcounter = loopCheck(lowcounter, l1);
-        printf("%i%s", lowcounter, "   " );
+    printf("%i%s", lowcounter, "   " );
+    printf("%i%s", a, "  ");
 	int b = lowPassFilt(a);
         printf("%i%s", b, "   " );
     
@@ -44,8 +44,7 @@ int lowPassFilt(int input){
     return (2 * highArray[loopCheck(highcounter - 1, l2)])
        - (highArray[(loopCheck(highcounter - 2, l2))])
      + (lowArray[loopCheck(lowcounter, l1)] - 2*lowArray[loopCheck(lowcounter-6, l1)]+lowArray[loopCheck(lowcounter-12, l1)])/32 ;
-}
-
+} 
 // highpass filter
 int highPassFilt(int input){
 	highArray[loopCheck(highcounter, l2)] = input;
@@ -84,8 +83,8 @@ int loopCheck(int number, int length)	{
 
     // increments all pointers
 void pushcounter(){
-    lowcounter++;
     highcounter++;
     derivcounter++;
     wndcounter++;
+    lowcounter++;
 }

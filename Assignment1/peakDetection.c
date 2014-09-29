@@ -1,80 +1,89 @@
 #include <time.h>
 #include "filter.h"
-// TODO: gør bufferstørelsen til en variabel
-static int buffer[5], peaks[30], ptr = 0, peakPtr = 0;
-static int RR_AVERAGE1, RR_AVERAGE2, RR_LOW, RR_HIGH, RR_MISS;
+#include "peakDetection.h" 
+#include <stdio.h>
+#include "display.h"
 
-int peakDetection(int input, time_t time)	{
+static int buffer[4], peaks[30],Rpeaks[30], RRpeaksOK[9],RRpeaks[9];
+int currentTime, lastEvent, pulse;
+int SPKF = 0, NPKF = 0, threshold1 = 0, threshold2 = 0, init=0,
+RR, RR_average1, RR_average2, RR_low, RR_high, RR_miss,  counter =0, peakcounter = 0, rpeakcounter = 0, rrpeakcounter = 0, rrpeakcounterok = 0, misscounter = 0, sampleCounter = 1;
 
-	//TODO: gør buffer til et lokalt array i findLocalMaxima() og giv den input istedet.
-	// lav et check så den først kører efter 5 inputs.
-	buffer[ptr] = input;
-	findLocalMaxima();
-	findRPeaks();
+
+int peakDetection(int input){
+    pulse = (sampleCounter*60)/250;
+    currentTime = sampleCounter/250;
+    sampleCounter++;
+    if(init<2){
+        buffer[loopCheck(init,4)] = input;
+        init++;
+        counter = init;
+    }else{
+        if(misscounter==5){
+            printf("Missed 5 times in a row.\n");
+            misscounter = 0;
+        }
+        bufferData(input);
+        checkData(input);
+        counter++;
+    }
 	return 0;
 }
 
-int findLocalMaxima()	{
-	//brug bufferstørrelsen istedet for 5 og 30
-	if(buffer[loopCheck(ptr -1,5)] < buffer[ptr] && buffer[ptr] > buffer[loopCheck(ptr +1,5)])	{
-		//Add the value in peak-array
-		peaks[loopCheck(peakPtr,30)] = buffer[loopCheck(ptr,5)];
-
-		peakPtr++;
-		ptr++;
-	}
+int checkData(int input)	{
+	if(buffer[loopCheck(counter-2,4)] < buffer[loopCheck(counter-1,4)] && buffer[loopCheck(counter-1,4)] > buffer[loopCheck(counter,4)])	{
+		peaks[loopCheck(peakcounter,30)] = buffer[loopCheck(counter-1,4)];
+        
+        if(peaks[loopCheck(peakcounter,30)] > threshold1){
+            Rpeaks[loopCheck(rpeakcounter,30)] = peaks[loopCheck(peakcounter,30)];
+            calculateRR();
+            lastEvent = currentTime;
+            if(RR_low < RR && RR < RR_high){
+                storeRPeakOK(rpeakcounter);
+                misscounter = 0;
+            }else{
+                misscounter++;
+                if(RR > RR_miss){
+                    searchBack();
+                }
+                displayData(peaks[loopCheck(peakcounter,30)],pulse, currentTime);
+            }
+            rpeakcounter++;
+        }
+        
+        else{
+            setNPKF(peaks[loopCheck(peakcounter-1,30)]);
+            setThreshold1();
+            setThreshold2();
+        }
+        peakcounter++;
+    }
     return 0;
 }
 
-int findRPeaks()	{
-	static int SPKF = 0, NPKF = 0, THRESHOLD1 = 0, THRESHOLD2 = 0;
-	static int RPeak[8], RPeakPtr = 0;
-	static int RRPeak[5], RRPeakPtr = 0;
 
-	RR_AVERAGE2 = RRAverageUpdate(RPeak);
-	if(peaks[peakPtr] < THRESHOLD1)	{ //if Peak is lower
-		NPKF = setNPKF(peaks[peakPtr], NPKF);
-		THRESHOLD1 = setThreshold1(NPKF, SPKF);
-		THRESHOLD2 = setThreshold2(THRESHOLD1);
-	}else {
-		RPeak[RPeakPtr] = peaks[peakPtr];
-		RRUpdate();
-
-		if(RR_LOW < RPeak[RPeakPtr] && RPeak[RPeakPtr] < RR_HIGH)	{
-			RRPeak[RRPeakPtr] = RPeak[RPeakPtr]; // Regular RPeaks
-
-			SPKF = setSPKF(peaks[peakPtr], SPKF);
-			THRESHOLD1 = setThreshold1(NPKF, SPKF);
-			THRESHOLD2 = setThreshold2(THRESHOLD1);
-		}else if(RPeak[RPeakPtr] < RR_MISS){
-			//Nothing happens
-		}else{
-			int seekPeakPtr = peakPtr;
-			while(1)	{
-
-				if(peaks[peakPtr] > THRESHOLD2)	{
-					RRAverageUpdate();
-					RRUpdate();
-					THRESHOLD1 = setThreshold1(NPKF, SPKF);
-					THRESHOLD2 = setThreshold2(THRESHOLD1);
-					SPKF = setSPKFSearchback(peaks[peakPtr], SPKF);
-					break;
-				}else{
-					loopCheck(seekPeakPtr--,30);
-				}
-			}
-		}
-		loopCheck(RRPeakPtr++, 5);
-		loopCheck(RPeakPtr++, 8);
-	}
-    return 0;
+void setSPKF(int peak)	{
+	SPKF = peak/8 + 0.875 * SPKF;
+}
+void setSPKFSearchback(int peak){
+	SPKF = peak/4 + 0.75*SPKF;
 }
 
-int RRUpdate()	{
-	RR_LOW = RR_AVERAGE2 / 100 * 92;
-	RR_HIGH = RR_AVERAGE2 / 100 * 116;
-	RR_MISS = RR_AVERAGE2 / 100 * 166;
-    return 0;
+void setNPKF(int peak)	{
+	NPKF = peak/8 + 0.875*NPKF;
+}
+
+void setThreshold1()	{
+	threshold1 = NPKF + ((SPKF - NPKF)/4);
+}
+
+void setThreshold2()	{
+	threshold2 = threshold1/2;
+}
+void RRUpdate()	{
+	RR_low = (RR_average2 / 100) * 92;
+	RR_high = (RR_average2 / 100) * 116;
+	RR_miss = (RR_average2 / 100) * 166;
 }
 
 int RRAverageUpdate(int array[])	{
@@ -85,28 +94,38 @@ int RRAverageUpdate(int array[])	{
 	return average / 8;
 }
 
-int setSPKF(int peak, int SPKF)	{
-	return 0.125 * peak + 0.875 * SPKF;
-}
-int setSPKFSearchback(int peak, int SPKF){
-	return 0.25 * peak + 0.75*SPKF;
+void calculateRR(){
+    RR = currentTime - lastEvent;
 }
 
-int setNPKF(int peak, int NPKF)	{
-	return 0.125*peak + 0.875*NPKF;
+void storeRPeakOK(int count){
+    // we will not be storing ALL the rpeaks in this program, seeing as it is not needed for the program to function.
+    // we could add another array which we would then push ALL the rpeaks into, or perhaps save the data in a text file (i.e. record the data)
+    RRpeaksOK[loopCheck(rrpeakcounterok, 9)] = RR;
+    RR_average2 = RRAverageUpdate(RRpeaksOK);
+    rrpeakcounterok++;
+    storeRPeak(count);
 }
 
-int setThreshold1(int NPKF, int SPKF)	{
-	return NPKF + 0.25 * (SPKF - NPKF);
+void storeRPeak(int count){
+    RRpeaks[loopCheck(rrpeakcounter, 9)] = RR;
+    RR_average1 = RRAverageUpdate(RRpeaks);
+    setSPKF(Rpeaks[loopCheck(count,30)]);
+    RRUpdate();
+    setThreshold1();
+    setThreshold2();
+    rrpeakcounter++;
 }
 
-int setThreshold2(int threshold1)	{
-	return 0.5*threshold1;
+void searchBack(){
+    int tempcounter = peakcounter-1;
+    while(peaks[loopCheck(tempcounter,30)] < RR_miss){
+        tempcounter--;
+    }
+    storeRPeak(tempcounter);
 }
 
-int loopCheck(int number, int length)	{
-	if(number<0){
-		return number+length;
-	} else
-		return number%length;
+void bufferData(int input){
+    buffer[loopCheck(counter,4)] = input;
 }
+

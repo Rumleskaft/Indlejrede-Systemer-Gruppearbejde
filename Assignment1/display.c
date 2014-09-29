@@ -9,19 +9,18 @@
 #include <stdio.h>
 #include <time.h>
 
-int displayData(rPeak, missed, time){
+int displayData(rPeak, pulse, time){
+
     if(rPeak<2000){
-        printf("%s%i\n", "ALERT ! Low R-peak value: " ,rPeak );
-        printf("%i", time);
+        printf("%s%i\n", "WARNING: Low R-peak value: " ,rPeak );
     }else{
         printf("%s%i\n", "R-peak value:" ,rPeak );
-        printf("%i", time);
+        if(time==1){
+            printf ("Peak occured after: %i%s\n", time, " second");
+        }else{
+            printf ("Peak occured after: %i%s\n", time, " seconds");
+        }
+        printf ("The patients pulse is: %i%s\n", pulse, " beats/min");
     }
-    
-    if(missed){
-        printf("%s\n", "Missed RR_Low and RR_high five times in a row ");
-    }
-    
     return 0;
 }
-s
