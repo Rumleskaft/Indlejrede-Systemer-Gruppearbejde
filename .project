@@ -5,7 +5,379 @@
 	<projects>
 	</projects>
 	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.cdt.managedbuilder.core.genmakebuilder</name>
+			<triggers>clean,full,incremental,</triggers>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.cdt.managedbuilder.core.ScannerConfigBuilder</name>
+			<triggers>full,incremental,</triggers>
+			<arguments>
+			</arguments>
+		</buildCommand>
 	</buildSpec>
 	<natures>
+		<nature>org.eclipse.cdt.core.cnature</nature>
+		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
+		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>.git</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>.gitignore</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/.gitignore</location>
+		</link>
+		<link>
+			<name>.project</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/.project</location>
+		</link>
+		<link>
+			<name>Assignment1</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>Assignment1.xcodeproj</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>.git/FETCH_HEAD</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/.git/FETCH_HEAD</location>
+		</link>
+		<link>
+			<name>.git/HEAD</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/.git/HEAD</location>
+		</link>
+		<link>
+			<name>.git/config</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/.git/config</location>
+		</link>
+		<link>
+			<name>.git/description</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/.git/description</location>
+		</link>
+		<link>
+			<name>.git/hooks</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>.git/index</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/.git/index</location>
+		</link>
+		<link>
+			<name>.git/info</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>.git/logs</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>.git/objects</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>.git/packed-refs</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/.git/packed-refs</location>
+		</link>
+		<link>
+			<name>.git/refs</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>Assignment1/Assignment1.1</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/Assignment1/Assignment1.1</location>
+		</link>
+		<link>
+			<name>Assignment1/ECG.txt</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/Assignment1/ECG.txt</location>
+		</link>
+		<link>
+			<name>Assignment1/display.c</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/Assignment1/display.c</location>
+		</link>
+		<link>
+			<name>Assignment1/display.h</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/Assignment1/display.h</location>
+		</link>
+		<link>
+			<name>Assignment1/filter.c</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/Assignment1/filter.c</location>
+		</link>
+		<link>
+			<name>Assignment1/filter.h</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/Assignment1/filter.h</location>
+		</link>
+		<link>
+			<name>Assignment1/main.c</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/Assignment1/main.c</location>
+		</link>
+		<link>
+			<name>Assignment1/peakDetection.c</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/Assignment1/peakDetection.c</location>
+		</link>
+		<link>
+			<name>Assignment1/peakDetection.h</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/Assignment1/peakDetection.h</location>
+		</link>
+		<link>
+			<name>Assignment1/sensor.c</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/Assignment1/sensor.c</location>
+		</link>
+		<link>
+			<name>Assignment1/sensor.h</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/Assignment1/sensor.h</location>
+		</link>
+		<link>
+			<name>Assignment1/test.c</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/Assignment1/test.c</location>
+		</link>
+		<link>
+			<name>Assignment1.xcodeproj/project.pbxproj</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/Assignment1.xcodeproj/project.pbxproj</location>
+		</link>
+		<link>
+			<name>Assignment1.xcodeproj/project.xcworkspace</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>Assignment1.xcodeproj/xcuserdata</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>.git/hooks/applypatch-msg.sample</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/.git/hooks/applypatch-msg.sample</location>
+		</link>
+		<link>
+			<name>.git/hooks/commit-msg.sample</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/.git/hooks/commit-msg.sample</location>
+		</link>
+		<link>
+			<name>.git/hooks/post-update.sample</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/.git/hooks/post-update.sample</location>
+		</link>
+		<link>
+			<name>.git/hooks/pre-applypatch.sample</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/.git/hooks/pre-applypatch.sample</location>
+		</link>
+		<link>
+			<name>.git/hooks/pre-commit.sample</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/.git/hooks/pre-commit.sample</location>
+		</link>
+		<link>
+			<name>.git/hooks/pre-push.sample</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/.git/hooks/pre-push.sample</location>
+		</link>
+		<link>
+			<name>.git/hooks/pre-rebase.sample</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/.git/hooks/pre-rebase.sample</location>
+		</link>
+		<link>
+			<name>.git/hooks/prepare-commit-msg.sample</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/.git/hooks/prepare-commit-msg.sample</location>
+		</link>
+		<link>
+			<name>.git/hooks/update.sample</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/.git/hooks/update.sample</location>
+		</link>
+		<link>
+			<name>.git/info/exclude</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/.git/info/exclude</location>
+		</link>
+		<link>
+			<name>.git/logs/HEAD</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/.git/logs/HEAD</location>
+		</link>
+		<link>
+			<name>.git/logs/refs</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>.git/objects/65</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>.git/objects/6f</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>.git/objects/99</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>.git/objects/pack</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>.git/refs/heads</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>.git/refs/remotes</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>Assignment1.xcodeproj/project.xcworkspace/contents.xcworkspacedata</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/Assignment1.xcodeproj/project.xcworkspace/contents.xcworkspacedata</location>
+		</link>
+		<link>
+			<name>Assignment1.xcodeproj/project.xcworkspace/xcshareddata</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>Assignment1.xcodeproj/xcuserdata/DanielBG.xcuserdatad</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>.git/logs/refs/heads</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>.git/logs/refs/remotes</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>.git/objects/65/e2af24b53ccbc16a2d7658337561003addd4f0</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/.git/objects/65/e2af24b53ccbc16a2d7658337561003addd4f0</location>
+		</link>
+		<link>
+			<name>.git/objects/6f/4d6b713af55851cf63c89a3cf9024977f1fe91</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/.git/objects/6f/4d6b713af55851cf63c89a3cf9024977f1fe91</location>
+		</link>
+		<link>
+			<name>.git/objects/99/6973be909a2bd880094c0c2a117efae6226f68</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/.git/objects/99/6973be909a2bd880094c0c2a117efae6226f68</location>
+		</link>
+		<link>
+			<name>.git/objects/pack/pack-84930b7e8fb3b16d5cb7b18235753c0162aa4a8b.idx</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/.git/objects/pack/pack-84930b7e8fb3b16d5cb7b18235753c0162aa4a8b.idx</location>
+		</link>
+		<link>
+			<name>.git/objects/pack/pack-84930b7e8fb3b16d5cb7b18235753c0162aa4a8b.pack</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/.git/objects/pack/pack-84930b7e8fb3b16d5cb7b18235753c0162aa4a8b.pack</location>
+		</link>
+		<link>
+			<name>.git/refs/heads/master</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/.git/refs/heads/master</location>
+		</link>
+		<link>
+			<name>.git/refs/remotes/origin</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>Assignment1.xcodeproj/project.xcworkspace/xcshareddata/Assignment1.xccheckout</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/Assignment1.xcodeproj/project.xcworkspace/xcshareddata/Assignment1.xccheckout</location>
+		</link>
+		<link>
+			<name>Assignment1.xcodeproj/xcuserdata/DanielBG.xcuserdatad/xcdebugger</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>Assignment1.xcodeproj/xcuserdata/DanielBG.xcuserdatad/xcschemes</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>.git/logs/refs/heads/master</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/.git/logs/refs/heads/master</location>
+		</link>
+		<link>
+			<name>.git/logs/refs/remotes/origin</name>
+			<type>2</type>
+			<locationURI>virtual:/virtual</locationURI>
+		</link>
+		<link>
+			<name>.git/refs/remotes/origin/HEAD</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/.git/refs/remotes/origin/HEAD</location>
+		</link>
+		<link>
+			<name>Assignment1.xcodeproj/xcuserdata/DanielBG.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/Assignment1.xcodeproj/xcuserdata/DanielBG.xcuserdatad/xcdebugger/Breakpoints_v2.xcbkptlist</location>
+		</link>
+		<link>
+			<name>Assignment1.xcodeproj/xcuserdata/DanielBG.xcuserdatad/xcschemes/Assignment1.xcscheme</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/Assignment1.xcodeproj/xcuserdata/DanielBG.xcuserdatad/xcschemes/Assignment1.xcscheme</location>
+		</link>
+		<link>
+			<name>Assignment1.xcodeproj/xcuserdata/DanielBG.xcuserdatad/xcschemes/xcschememanagement.plist</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/Assignment1.xcodeproj/xcuserdata/DanielBG.xcuserdatad/xcschemes/xcschememanagement.plist</location>
+		</link>
+		<link>
+			<name>.git/logs/refs/remotes/origin/HEAD</name>
+			<type>1</type>
+			<location>D:/Programmer/Temp WS C/Indlejrede-Systemer-Gruppearbejde/.git/logs/refs/remotes/origin/HEAD</location>
+		</link>
+	</linkedResources>
 </projectDescription>
