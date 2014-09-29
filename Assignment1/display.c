@@ -16,9 +16,9 @@ int displayData(rPeak, pulse, time){
     }else{
         printf("%s%i\n", "R-peak value:" ,rPeak );
         if(time==1){
-            printf ("Peak occured after: %i%s\n", time, " second");
+            printf ("Peak occurred after: %i%s\n", time, " second");
         }else{
-            printf ("Peak occured after: %i%s\n", time, " seconds");
+            printf ("Peak occurred after: %i%s\n", time, " seconds");
         }
         printf ("The patients pulse is: %i%s\n", pulse, " beats/min");
     }
